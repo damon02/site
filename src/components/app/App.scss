@@ -12,13 +12,14 @@
 }
 
 .intro {
-  .name, .lastname {
+  .name {
     position: relative;
     z-index: 1;
     margin-bottom: 12px;
   
     letter-spacing: -5px;
     font-size: 7em;
+    padding-right: 64px;
   }
   .name:after {
     content: '';
@@ -67,9 +68,13 @@
   }
 }
 
-.mail {
+h2 {
   letter-spacing: -1px;
   font-weight: 300;
+}
+
+.description {
+  margin-bottom: 8px;
 }
 
 .copy {

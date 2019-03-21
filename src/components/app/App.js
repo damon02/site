@@ -6,9 +6,11 @@ class App extends Component {
     return (
       <div className="app">
         <div className="intro">
-          <h1 className="name">Damon</h1>
-          <h1 className="lastname">Asberg</h1>
+          <h1 className="name">Damon Asberg</h1>
         </div>
+        <h2 className="description">
+          Front-end developer
+        </h2>
         <div className="socials">
           <a href="mailto:damon@damon.dev" target="_self" rel="noopener noreferrer">
             <div className="socialbutton mail"/>
