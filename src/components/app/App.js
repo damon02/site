@@ -23,7 +23,7 @@ class App extends Component {
           </a> 
         </div>
         <h2 className="mail">damon@damon.dev</h2>
-        <div className="copy">&copy; 2019 - damon.dev</div>
+        <div className="copy">&copy; 2021 - damon.dev</div>
       </div>
     )
   }
