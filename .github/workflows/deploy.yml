@@ -30,4 +30,4 @@ jobs:
           key: ${{ secrets.key }}
           rm: true
           source: '${{ vars.build_folder }}'
-          target: '~/${{ secrets.target_folder }}'
+          target: '~/${{ vars.build_folder }}'
