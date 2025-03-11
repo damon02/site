@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
       - uses: pnpm/action-setup@v4
         with:
-          version: 10.0.0
+          version: 10.6.2
 
       - run: pnpm install
       - run: pnpm run build
@@ -29,5 +29,6 @@ jobs:
           port: ${{ secrets.port }}
           key: ${{ secrets.key }}
           rm: true
-          source: '${{ vars.build_folder }}'
-          target: '~/${{ vars.build_folder }}/'
+          source: '${{ vars.build_folder }}/'
+          target: '~/${{ vars.build_folder }}'
+          strip_components: 1
