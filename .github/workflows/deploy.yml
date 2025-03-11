@@ -21,8 +21,10 @@ jobs:
       - run: pnpm run build
       - uses: appleboy/ssh-action@v1.2.2
         with:
+          command_timeout: 1m
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: whoami
+          key: ${{ secrets.KEY }}
+          script: echo "hello world"
