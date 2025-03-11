@@ -11,23 +11,35 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-      - uses: pnpm/action-setup@v4
+      - name: Checkout Git repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.JS
+        uses: actions/setup-node@v4
+
+      - name: Install pnpm@10.6.2
+        uses: pnpm/action-setup@v4
         with:
           version: 10.6.2
 
       - run: pnpm install
       - run: pnpm run build
 
-      - name: Set up SCP 🔑
-        run: |
-          mkdir -v -m 700 $HOME/.ssh
-          ssh-keyscan -H ${{ secrets.host }} > $HOME/.ssh/known_hosts
-          echo "${{ secrets.key }}" > $HOME/.ssh/id_rsa
-          chmod 400 $HOME/.ssh/id_rsa
+      # - name: Set up SSH and SCP
+      #   run: |
+      #     mkdir -v -m 700 $HOME/.ssh
+      #     ssh-keyscan -H ${{ secrets.host }} > $HOME/.ssh/known_hosts
+      #     echo "${{ secrets.key }}" > $HOME/.ssh/id_rsa
+      #     chmod 400 $HOME/.ssh/id_rsa
 
-      - name: Copy build folder to server 🚀
+      - name: Empty old deployed folder
+        run: |
+          ssh ${{ secrets.username }}@${{ secrets.host }}
+          rm -rf ${{ secrets.target_folder }}
+          mkdir ${{ secrets.target_folder }}
+          exit
+
+      - name: Copy build folder to server
         run: |
           cd ${{ vars.build_folder }}
           scp -r . ${{ secrets.username }}@${{ secrets.host }}:~/${{ secrets.target_folder }}/
