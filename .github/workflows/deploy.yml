@@ -27,4 +27,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-          script: echo "hello world"
+          script: |
+            whoami
+            ls -al
