@@ -5,13 +5,20 @@ on:
   push:
     branches:
       - master
+      - redesign
 
 jobs:
   deploy:
-    environment: live
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
       - run: pnpm install
       - run: pnpm run build
+      - uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoami
