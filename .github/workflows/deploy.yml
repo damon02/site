@@ -25,12 +25,12 @@ jobs:
       - run: pnpm install
       - run: pnpm run build
 
-      # - name: Set up SSH and SCP
-      #   run: |
-      #     mkdir -v -m 700 $HOME/.ssh
-      #     ssh-keyscan -H ${{ secrets.host }} > $HOME/.ssh/known_hosts
-      #     echo "${{ secrets.key }}" > $HOME/.ssh/id_rsa
-      #     chmod 400 $HOME/.ssh/id_rsa
+      - name: Set up SSH and SCP
+        run: |
+          mkdir -v -m 700 $HOME/.ssh
+          ssh-keyscan -H ${{ secrets.host }} > $HOME/.ssh/known_hosts
+          echo "${{ secrets.key }}" > $HOME/.ssh/id_rsa
+          chmod 400 $HOME/.ssh/id_rsa
 
       - name: Empty old deployed folder
         run: |
