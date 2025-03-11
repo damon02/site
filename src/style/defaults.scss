@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=Lexend:wght@100..900&display=swap');
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  position: absolute;
+  padding-top: env(safe-area-inset-top);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  padding-top: env(safe-area-inset-top);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+
+  b {
+    font-weight: var(--body-title-weight);
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--font-heading-weight);
+  margin: unset;
+}
+
+h1 {
+  font-size: var(--h1-size);
+  line-height: var(--h1-line-height);
+  letter-spacing: -0.3rem;
+}
+
+h2 {
+  font-size: var(--h2-size);
+  line-height: var(--h2-line-height);
+  letter-spacing: -0.1rem;
+}
+
+h3 {
+  font-size: var(--h3-size);
+  line-height: var(--h3-line-height);
+}
+
+h4 {
+  font-size: var(--h4-size);
+  line-height: var(--h4-line-height);
+}
+
+.gray {
+  color: var(--color-text-gray);
+}
+
+.block {
+  background-color: var(--color-block-background);
+  padding: var(--space-l);
+}
+
+.flex {
+  display: flex;
+
+  &.center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.align-center,
+  &.ac {
+    align-items: center;
+  }
+
+  &.space-between,
+  &.sb {
+    justify-content: space-between;
+  }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &.flex-end {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  &.bottom {
+    align-items: flex-end;
+
+    &.row {
+      align-items: unset;
+      justify-content: flex-end;
+    }
+  }
+}
+
+button,
+.button {
+  background-color: var(--color-primary);
+  padding: var(--space-xs) var(--space-s);
+  height: var(--space-2xl);
+  min-width: var(--space-2xl);
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+
+  &.github {
+    background-image: url('../resources/git.png');
+  }
+  
+  &.linkedin {
+    background-image: url('../resources/linkedin.png');
+  }
+  
+  &.mail {
+    background-image: url('../resources/mail.png');
+  }
+}
+
+a {
+  color: var(--color-highlight);
+}
