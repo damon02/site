@@ -22,11 +22,12 @@ jobs:
 
       - uses: appleboy/scp-action@v0.1.7
         with:
+          command_timeout: 2m
           host: ${{ secrets.host }}
           username: ${{ secrets.username }}
           password: ${{ secrets.password }}
           port: ${{ secrets.port }}
           key: ${{ secrets.key }}
-          source: ${{ vars.build_folder }}/*
-          target: ~/${{ secrets.target_folder }}
           rm: true
+          source: '${{ vars.build_folder }}'
+          target: '~/${{ secrets.target_folder }}'
