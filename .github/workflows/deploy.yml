@@ -19,14 +19,16 @@ jobs:
 
       - run: pnpm install
       - run: pnpm run build
-      - uses: appleboy/ssh-action@v1.2.2
+
+      - run:
+
+      - uses: appleboy/scp-action@v0.1.7
         with:
-          command_timeout: 1m
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          key: ${{ secrets.KEY }}
-          script: |
-            whoami
-            ls -al
+          host: ${{ secrets.host }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          port: ${{ secrets.port }}
+          key: ${{ secrets.key }}
+          source: ${{ vars.build_folder }}/*
+          target: ~/${{ secrets.target_folder }}
+          rm: true
