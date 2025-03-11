@@ -34,10 +34,7 @@ jobs:
 
       - name: Empty old deployed folder
         run: |
-          ssh ${{ secrets.username }}@${{ secrets.host }}
-          rm -rf ${{ secrets.target_folder }}
-          mkdir ${{ secrets.target_folder }}
-          exit
+          ssh ${{ secrets.username }}@${{ secrets.host }} && rm -rf ${{ secrets.target_folder }} && mkdir ${{ secrets.target_folder }} && exit
 
       - name: Copy build folder to server
         run: |
