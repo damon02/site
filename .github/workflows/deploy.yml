@@ -32,11 +32,6 @@ jobs:
           echo "${{ secrets.key }}" > $HOME/.ssh/id_rsa
           chmod 400 $HOME/.ssh/id_rsa
 
-      - name: Empty old deployed folder
-        run: |
-          ssh ${{ secrets.username }}@${{ secrets.host }} && rm -rf ${{ secrets.target_folder }} && mkdir ${{ secrets.target_folder }} && exit
-
       - name: Copy build folder to server
         run: |
-          cd ${{ vars.build_folder }}
-          scp -r . ${{ secrets.username }}@${{ secrets.host }}:~/${{ secrets.target_folder }}/
+          rsync -av ${{ vars.build_folder }}/ ${{ secrets.username }}@${{ secrets.host }}:~/${{ secrets.target_folder }}/ --delete
