@@ -1,0 +1,31 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-left: var(--space-6xl);
+  background-color: var(--color-background);
+}
+
+.name {
+  position: relative;
+  z-index: 1;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 70%;
+    height: var(--space-xs);
+    width: 100%;
+    background-color: var(--color-primary);
+    z-index: -1;
+    display: block;
+  }
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-s);
+  margin-bottom: var(--space-s);
+}
