@@ -9,6 +9,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: damon.dev
     steps:
       - name: Checkout Git repository
         uses: actions/checkout@v4
