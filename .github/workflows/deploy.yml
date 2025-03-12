@@ -35,3 +35,4 @@ jobs:
       - name: Copy build folder to server
         run: |
           rsync -av ${{ vars.build_folder }}/ ${{ secrets.username }}@${{ secrets.host }}:~/${{ secrets.target_folder }}/ --delete
+          
